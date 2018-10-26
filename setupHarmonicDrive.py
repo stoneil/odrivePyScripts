@@ -35,6 +35,12 @@ print("Changing state to closed loop control")
 my_drive.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
 
 while my_drive.axis0.current_state != AXIS_STATE_CLOSED_LOOP_CONTROL:
+    print("axis errors are:")
+    print(hex(my_drive.axis0.error))	
+    print("motor errors are:")
+    print(hex(my_drive.axis0.motor.error))
+    print("encoder errors are:")
+    print(hex(my_drive.axis0.encoder.error))
     time.sleep(0.1)
 
 print("current state is " + str(my_drive.axis0.current_state))
